@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Tourism Ethiopia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f3f0 0%, #e8e2d8 100%);
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    /* Hide checkbox */
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 1002;
+      width: 30px;
+      height: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-icon span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      margin: 6px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    /* Hamburger animation */
+    #menu-toggle:checked + .menu-icon span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    #menu-toggle:checked + .menu-icon span:nth-child(2) {
+      opacity: 0;
+    }
+    #menu-toggle:checked + .menu-icon span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: end;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
+    }
+    nav a {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      margin: 0 2px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    nav a:hover,
+    nav a:focus {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    nav a.active,
+    nav a[aria-current="page"] {
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    nav a:focus-visible {
+      outline: 3px solid #ffd700;
+      outline-offset: 2px;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      
+      .menu-icon {
+        display: block;
+      }
+      
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(135deg, #654321 0%, #8b4513 100%);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1001;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        border-radius: 0 0 12px 12px;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      nav a {
+        margin: 4px 0;
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+        background: rgba(255,255,255,0.1);
+      }
+
+      nav a:hover {
+        background: rgba(255,255,255,0.2);
+        transform: scale(1.02);
+      }
+
+      #menu-toggle:checked + .menu-icon + nav {
+        display: flex;
+      }
+    }
+    
+    .page-title {
+      padding: 2rem;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #8b4513;
+      text-align: center;
+      background: rgba(255,255,255,0.8);
+      margin: 2rem auto;
+      width: 95%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      backdrop-filter: blur(5px);
+      position: relative;
+    }
+    
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #8b4513, #cd853f);
+      border-radius: 2px;
+    }
+    
+    .about-container {
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.6);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+      margin-bottom: 2rem;
+      width: 95%;
+    }
+    
+    .about-sidebar {
+      flex-shrink: 0;
+      width: 250px;
+    }
+    
+    .sidebar-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .sidebar-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .about-content {
+      flex: 1;
+    }
+    
+    .content-section {
+      margin-bottom: 2.5rem;
+      background: rgba(255,255,255,0.7);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #8b4513, #cd853f);
+    }
+    
+    .content-section h2 {
+      font-size: 1.8rem;
+      color: #8b4513;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .content-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #8b4513, #cd853f);
+      border-radius: 2px;
+    }
+    
+    .content-section p {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+    
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .highlight-item {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .highlight-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #8b4513, #cd853f);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .highlight-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .highlight-item:hover::before {
+      opacity: 1;
+    }
+    
+    .highlight-item h3 {
+      font-size: 1.3rem;
+      color: #8b4513;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .highlight-item p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: left;
+    }
+    
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    
+    .gallery-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-image:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      color: #666;
+      background: linear-gradient(135deg, rgba(139,69,19,0.1) 0%, rgba(205,133,63,0.1) 100%);
+      border-top: 1px solid rgba(139,69,19,0.2);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 1024px) {
+      .about-container {
+        gap: 2rem;
+      }
+      .about-sidebar {
+        width: 220px;
+      }
+      .page-title {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+      .about-sidebar {
+        width: 100%;
+        max-width: 300px;
+        align-self: center;
+      }
+      .page-title {
+        font-size: 2rem;
+        padding: 1.5rem;
+      }
+      .content-section {
+        padding: 1.5rem;
+      }
+      .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .about-container {
+        padding: 1rem;
+      }
+      .page-title {
+        font-size: 1.8rem;
+        padding: 1.25rem;
+      }
+      .content-section {
+        padding: 1.25rem;
+      }
+      .highlight-item {
+        padding: 1.5rem;
+      }
+      .image-gallery {
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *:focus {
+      outline: 2px solid #ffd700;
+      outline-offset: 2px;
+    }
+
+    /* Page load animations */
+    .content-section {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .content-section:nth-of-type(1) { animation-delay: 0.2s; }
+    .content-section:nth-of-type(2) { animation-delay: 0.4s; }
+    .content-section:nth-of-type(3) { animation-delay: 0.6s; }
+    
+    .highlight-item {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .highlight-item:nth-child(1) { animation-delay: 0.8s; }
+    .highlight-item:nth-child(2) { animation-delay: 1.0s; }
+    .highlight-item:nth-child(3) { animation-delay: 1.2s; }
+    .highlight-item:nth-child(4) { animation-delay: 1.4s; }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="video.html">Video</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <main>
+    <h1 class="page-title">About Us</h1>
+    <div class="about-container">
+      <aside class="about-sidebar">
+        <img class="sidebar-image" src="./images/lalibela.jpg" alt="Rock-hewn Churches of Lalibela, Ethiopia">
+      </aside>
+      
+      <article class="about-content">
+        <section class="content-section">
+          <h2>About Us – Discover Ethiopia</h2>
+          <p>
+            When you travel with us, you're not just moving from one place to another — 
+            it's about stories, traditions, and moments that stay with you forever. 
+            Ethiopia is a land where history, culture, and nature blend in ways you won't 
+            find anywhere else. From the rock-hewn churches of Lalibela to the rugged 
+            peaks of the Simien Mountains, every corner tells a story that spans thousands of years.
+          </p>
+          <p>
+            Our mission is to guide you beyond the guidebooks, to help you meet the people 
+            behind the coffee ceremonies, the artisans crafting age-old treasures, and the 
+            farmers whose fields paint the countryside in shades of green and gold. 
+            Whether you're trekking in the highlands, sailing on Lake Tana, or simply sharing 
+            ancient conversations, we're here to make every step meaningful.
+          </p>
+        </section>
+        
+        <section aria-label="Ethiopia Highlights" class="highlights-grid">
+          <div class="highlight-item">
+            <h3>Rich Heritage</h3>
+            <p>Explore 3,000 years of history through ancient kingdoms, rock churches, and archaeological wonders.</p>
+          </div>
+          
+          <div class="highlight-item">
+            <h3>Natural Wonders</h3>
+            <p>From the Simien Mountains to the Danakil Depression, experience landscapes found nowhere else.</p>
+          </div>
+          
+          <div class="highlight-item">
+            <h3>Cultural Diversity</h3>
+            <p>Meet over 80 ethnic groups with unique languages, traditions, and preserved heritage.</p>
+          </div>
+          
+          <div class="highlight-item">
+            <h3>Authentic Experiences</h3>
+            <p>Participate in coffee ceremonies, witness ancient festivals, and connect with local communities.</p>
+          </div>
+        </section>
+        
+        <section class="content-section">
+          <h2>Why Choose Ethiopia?</h2>
+          <p>
+            Ethiopia stands apart as Africa's only nation never fully colonized, 
+            preserving its customs and traditions in their purest forms. 
+            As the birthplace of coffee and home to Lucy, one of humanity's earliest ancestors, 
+            Ethiopia offers visitors a journey to the origins of human civilization.
+          </p>
+          <p>
+            Our guides and curated experiences ensure your journey is comfortable and transformative. 
+            We believe in responsible tourism that benefits local communities while giving you unforgettable memories.
+          </p>
+        </section>
+        
+        <section aria-label="Image Gallery" class="image-gallery">
+          <img class="gallery-image" src="./images/lalibela.jpg" alt="Rock-hewn church in Lalibela">
+          <img class="gallery-image" src="./images/sof.jpeg" alt="Sof Omar cave entrance, Ethiopia">
+          <img class="gallery-image" src="./images/harar.jpeg" alt="Old city walls of Harar, Ethiopia">
+          <img class="gallery-image" src="./images/konso.jpg" alt="Terraced fields of Konso, Ethiopia">
+        </section>
+      </article>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Tourism Ethiopia. All rights reserved.</p>
+  </footer>
+</body>
+</html>
