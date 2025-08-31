@@ -16,12 +16,13 @@
     /* Header */
     header {
       background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
-      padding: 0.8rem 2rem;
+      padding: 0.8rem 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: relative;
+      flex-wrap: wrap;
     }
     .logo {
       display: flex;
@@ -29,7 +30,7 @@
       gap: 0.6rem;
     }
     .logo img {
-      height: 60px;
+      height: 50px;
       width: auto;
       border-radius: 50%;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
@@ -78,12 +79,13 @@
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(5px);
       color: #fff;
-      padding: 0.7rem 1.3rem;
+      padding: 0.7rem 1rem;
       text-decoration: none;
       border-radius: 6px;
       font-size: 0.9rem;
       font-weight: 500;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
     nav a:hover {
       background: rgba(255,255,255,0.2);
@@ -91,32 +93,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* Mobile nav */
-    @media (max-width: 768px) {
-      .menu-btn { display: flex; }
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: linear-gradient(135deg, #654321 0%, #8b4513 100%);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1001;
-        padding: 1rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        border-radius: 0 0 12px 12px;
-      }
-      nav.show { display: flex; }
-      nav a { margin: 4px 0; text-align: center; }
-    }
-
     /* Hero slideshow */
     .hero {
       width: 95%;
-      margin: 2rem auto;
+      margin: 1.5rem auto;
       position: relative;
-      height: 400px;
+      height: 300px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
@@ -143,38 +125,44 @@
     }
     .hero-text {
       position: absolute;
-      bottom: 25px;
-      left: 25px;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
       color: #fff;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: bold;
       background: rgba(139,69,19,0.8);
-      padding: 1rem 1.5rem;
+      padding: 0.8rem 1rem;
       border-radius: 10px;
       backdrop-filter: blur(5px);
       transition: opacity 0.5s ease;
+      text-align: center;
     }
 
     /* Main content */
     main {
-      padding: 2rem;
+      padding: 1.5rem;
       max-width: 1200px;
       margin: auto;
       display: flex;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
       align-items: flex-start;
+      justify-content: center;
     }
     .side-image {
-      width: 220px;
+      width: 100%;
+      max-width: 300px;
       border-radius: 10px;
       margin-bottom: 1rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       object-fit: cover;
     }
     .center-content {
-      flex: 2;
+      flex: 1;
+      min-width: 300px;
       background: rgba(255,255,255,0.9);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
@@ -182,10 +170,11 @@
     /* Gallery */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin: 2rem auto;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem auto;
       width: 95%;
+      padding: 0 1rem;
     }
     .gallery img {
       width: 100%;
@@ -200,8 +189,8 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.95rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
       color: #666;
       margin-top: 2rem;
     }
@@ -209,13 +198,13 @@
     /* Scroll-to-top */
     #scrollTopBtn {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
+      bottom: 20px;
+      right: 20px;
       background: #8b4513;
       color: #fff;
       border: none;
-      padding: 0.7rem 1rem;
-      font-size: 1.2rem;
+      padding: 0.6rem 0.9rem;
+      font-size: 1.1rem;
       border-radius: 50%;
       cursor: pointer;
       display: none;
@@ -242,6 +231,110 @@
       max-width: 90%;
       max-height: 80%;
       border-radius: 10px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .hero { height: 280px; }
+      .hero-text { font-size: 1.1rem; }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0.7rem 1rem;
+      }
+      .logo img {
+        height: 45px;
+      }
+      .logo span {
+        font-size: 1.1rem;
+      }
+      .menu-btn { 
+        display: flex; 
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(135deg, #654321 0%, #8b4513 100%);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1001;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        border-radius: 0 0 12px 12px;
+        gap: 0.5rem;
+      }
+      nav.show { display: flex; }
+      nav a { 
+        margin: 2px 0; 
+        text-align: center; 
+        padding: 0.8rem;
+      }
+      
+      .hero {
+        height: 220px;
+        margin: 1rem auto;
+      }
+      .hero-text {
+        font-size: 1rem;
+        padding: 0.7rem;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+      }
+      
+      main {
+        padding: 1rem;
+        gap: 1rem;
+      }
+      .center-content {
+        padding: 1.2rem;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo span {
+        font-size: 1rem;
+      }
+      .hero {
+        height: 180px;
+        border-radius: 10px;
+      }
+      .hero-text {
+        font-size: 0.9rem;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 0.6rem;
+      }
+      
+      .side-image {
+        max-width: 100%;
+      }
+      
+      .center-content {
+        padding: 1rem;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+      .gallery img {
+        height: 150px;
+      }
+      
+      footer {
+        padding: 1rem;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
