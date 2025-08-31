@@ -5,111 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Tourism Ethiopia</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f5f3f0 0%, #e8e2d8 100%);
       color: #2c2c2c;
       line-height: 1.6;
-      min-height: 100vh;
     }
 
+    /* Header */
     header {
       background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
-      padding: 1rem 2rem;
+      padding: 0.8rem 2rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: relative;
     }
-
-    /* Hide checkbox */
-    #menu-toggle {
-      display: none;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo img {
+      height: 60px;
+      width: auto;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .logo span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
     }
 
-    .menu-icon {
+    /* Navigation */
+    .menu-btn {
       display: none;
-      position: absolute;
-      top: 50%;
-      right: 1.5rem;
-      transform: translateY(-50%);
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
       cursor: pointer;
+      background: none;
+      border: none;
       z-index: 1002;
-      width: 30px;
-      height: 24px;
-      transition: all 0.3s ease;
     }
-
-    .menu-icon span {
+    .menu-btn span {
       display: block;
-      width: 100%;
       height: 3px;
+      width: 100%;
       background: #fff;
-      margin: 6px 0;
-      transition: all 0.3s ease;
       border-radius: 2px;
+      transition: all 0.3s ease;
     }
-
-    /* Hamburger animation */
-    #menu-toggle:checked + .menu-icon span:nth-child(1) {
+    .menu-btn.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
-    #menu-toggle:checked + .menu-icon span:nth-child(2) {
+    .menu-btn.active span:nth-child(2) {
       opacity: 0;
     }
-    #menu-toggle:checked + .menu-icon span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
+    .menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
-
     nav {
       display: flex;
-      justify-content: end;
-      flex-wrap: wrap;
-      transition: all 0.3s ease;
+      gap: 8px;
     }
     nav a {
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(5px);
       color: #fff;
-      padding: 0.8rem 1.5rem;
+      padding: 0.7rem 1.3rem;
       text-decoration: none;
-      margin: 0 2px;
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
-    nav a:hover,
-    nav a:focus {
+    nav a:hover {
       background: rgba(255,255,255,0.2);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    nav a.active,
-    nav a[aria-current="page"] {
-      background: rgba(255,255,255,0.25);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    nav a:focus-visible {
-      outline: 3px solid #ffd700;
-      outline-offset: 2px;
-    }
 
-    /* Mobile styles */
+    /* Mobile nav */
     @media (max-width: 768px) {
-      header {
-        padding: 2rem 1rem;
-      }
-      
-      .menu-icon {
-        display: block;
-      }
-      
+      .menu-btn { display: flex; }
       nav {
         display: none;
         flex-direction: column;
@@ -122,440 +106,276 @@
         padding: 1rem;
         box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         border-radius: 0 0 12px 12px;
-        animation: slideDown 0.3s ease;
       }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      nav a {
-        margin: 4px 0;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        background: rgba(255,255,255,0.1);
-      }
-
-      nav a:hover {
-        background: rgba(255,255,255,0.2);
-        transform: scale(1.02);
-      }
-
-      #menu-toggle:checked + .menu-icon + nav {
-        display: flex;
-      }
+      nav.show { display: flex; }
+      nav a { margin: 4px 0; text-align: center; }
     }
-    
+
+    /* Page title */
     .page-title {
-      padding: 2rem;
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #8b4513;
       text-align: center;
-      background: rgba(255,255,255,0.8);
+      padding: 2rem;
       margin: 2rem auto;
       width: 95%;
-      border-radius: 15px;
+      color: #8b4513;
+      font-size: 2.2rem;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      backdrop-filter: blur(5px);
-      position: relative;
     }
-    
-    .page-title::after {
-      content: '';
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, #8b4513, #cd853f);
-      border-radius: 2px;
-    }
-    
+
+    /* Contact content */
     .contact-container {
       padding: 2rem;
       max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      margin: auto;
+      display: flex;
+      gap: 2rem;
       align-items: flex-start;
-      background: rgba(255,255,255,0.6);
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
-      margin-bottom: 2rem;
-      width: 95%;
     }
-    
-    .contact-form-section {
-      background: rgba(255,255,255,0.7);
-      padding: 2.5rem;
-      border-radius: 15px;
+    .side-image {
+      width: 220px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+    .center-content {
+      flex: 2;
+      background: rgba(255,255,255,0.9);
+      padding: 2rem;
+      border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
     }
-    
-    .contact-form-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #8b4513, #cd853f);
-    }
-    
-    .contact-form-section h2 {
-      font-size: 1.8rem;
-      color: #8b4513;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    
-    .contact-form-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, #8b4513, #cd853f);
-      border-radius: 2px;
-    }
-    
+
+    /* Contact form */
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
-    
     .form-group {
       display: flex;
       flex-direction: column;
+      position: relative;
     }
-    
     .form-group label {
-      font-size: 1rem;
-      color: #8b4513;
-      margin-bottom: 0.5rem;
       font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #8b4513;
+      display: flex;
+      align-items: center;
     }
-    
+    .required-marker {
+      color: #e74c3c;
+      margin-left: 4px;
+    }
     .form-group input,
     .form-group textarea {
-      padding: 1rem 1.5rem;
-      border: 2px solid rgba(139,69,19,0.2);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.9);
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
       font-size: 1rem;
-      color: #333;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
     }
-    
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #888;
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #8b4513;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 0 0 3px rgba(139,69,19,0.1);
-      transform: translateY(-1px);
-    }
-    
     .form-group textarea {
       min-height: 120px;
       resize: vertical;
       line-height: 1.6;
     }
     
-    .submit-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
+    /* Validation styles */
+    .form-group.success input,
+    .form-group.success textarea {
+      border-color: #2ecc71;
+      box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
     }
-    
-    .submit-btn {
-      background: linear-gradient(135deg, #8b4513 0%, #cd853f 100%);
-      color: white;
-      border: none;
-      padding: 1.2rem 3rem;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(139,69,19,0.3);
-      backdrop-filter: blur(10px);
+    .form-group.error input,
+    .form-group.error textarea {
+      border-color: #e74c3c;
+      box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
     }
-    
-    .submit-btn:hover {
-      background: linear-gradient(135deg, #654321 0%, #8b4513 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(139,69,19,0.4);
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+      display: none;
     }
-    
-    .submit-btn:active {
-      transform: translateY(0);
+    .form-group.error .error-message {
+      display: block;
     }
-    
-    .contact-info-section {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    
-    .contact-info {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(10px);
-      padding: 2.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-info::before {
-      content: '';
+    .validation-icon {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #8b4513, #cd853f);
+      right: 12px;
+      top: 38px;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    
-    .contact-info:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-    
-    .contact-info:hover::before {
+    .form-group.success .fa-check-circle {
       opacity: 1;
+      color: #2ecc71;
+    }
+    .form-group.error .fa-exclamation-circle {
+      opacity: 1;
+      color: #e74c3c;
     }
     
-    .contact-info h3 {
-      font-size: 1.5rem;
-      color: #8b4513;
-      margin-bottom: 1.5rem;
+    .submit-btn {
+      background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
       position: relative;
-      padding-bottom: 0.5rem;
+    }
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #654321 0%, #8b4513 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .submit-btn:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
     
-    .contact-info h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background: linear-gradient(90deg, #8b4513, #cd853f);
-      border-radius: 2px;
+    /* Success message */
+    .success-message {
+      display: none;
+      background: #2ecc71;
+      color: white;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
     }
-    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Contact info */
+    .contact-info {
+      margin-top: 2rem;
+    }
     .info-item {
       display: flex;
-      align-items: center;
-      margin-bottom: 1.2rem;
-      font-size: 1rem;
-      color: #555;
-      padding: 0.5rem 0;
+      margin-bottom: 1rem;
     }
-    
     .info-item strong {
-      width: 90px;
+      width: 80px;
       color: #8b4513;
-      font-weight: 600;
-      flex-shrink: 0;
     }
-    
-    .info-item span {
-      color: #444;
-    }
-    
-    
-    
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.95rem;
       color: #666;
-      background: linear-gradient(135deg, rgba(139,69,19,0.1) 0%, rgba(205,133,63,0.1) 100%);
-      border-top: 1px solid rgba(139,69,19,0.2);
-    }
-    
-    /* Responsive design */
-    @media (max-width: 1024px) {
-      .contact-container {
-        gap: 2rem;
-      }
-      .page-title {
-        font-size: 2.2rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .contact-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 1.5rem;
-      }
-      .contact-form-section,
-      .contact-info,
-      .map-container {
-        padding: 2rem;
-      }
-      .page-title {
-        font-size: 2rem;
-        padding: 1.5rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .contact-container {
-        padding: 1rem;
-      }
-      .contact-form-section,
-      .contact-info,
-      .map-container {
-        padding: 1.5rem;
-      }
-      .page-title {
-        font-size: 1.8rem;
-        padding: 1.25rem;
-      }
-      .form-group input,
-      .form-group textarea {
-        padding: 0.8rem 1.2rem;
-      }
-      .submit-btn {
-        padding: 1rem 2.5rem;
-        font-size: 1rem;
-      }
-      .info-item strong {
-        width: 80px;
-        font-size: 0.9rem;
-      }
+      margin-top: 2rem;
     }
 
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    *:focus {
-      outline: 2px solid #ffd700;
-      outline-offset: 2px;
-    }
-
-    /* Page load animations */
-    .contact-form-section {
-      animation: fadeInLeft 0.6s ease forwards;
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    
-    .contact-info {
-      animation: fadeInRight 0.6s ease forwards;
-      opacity: 0;
-      transform: translateX(20px);
-    }
-    
-    .contact-info:nth-of-type(1) { animation-delay: 0.2s; }
-    .contact-info:nth-of-type(2) { animation-delay: 0.4s; }
-    
-    .map-container {
-      animation: fadeInRight 0.6s ease forwards;
-      opacity: 0;
-      transform: translateX(20px);
-      animation-delay: 0.6s;
-    }
-    
-    @keyframes fadeInLeft {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    @keyframes fadeInRight {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    /* Scroll-to-top */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #8b4513;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1rem;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1500;
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <!-- Navigation -->
-    <nav aria-label="Main Navigation">
+    <div class="logo">
+      <img src="./images/logo1.png" alt="Ethiopia Logo">
+      <span>Tourism Ethiopia</span>
+    </div>
+    <button class="menu-btn" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="video.html">Video</a>
       <a href="about.html">About</a>
-      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
   
-  <main>
-    <h1 class="page-title">Contact Us</h1>
-    <div class="contact-container">
+  <h1 class="page-title">Contact Us</h1>
+  
+  <main class="contact-container">
+    <img class="side-image" src="./images/contact1.jpeg" alt="Ethiopian landscape">
+    
+    <div class="center-content">
       <section class="contact-form-section">
         <h2>Get in Touch</h2>
-        <form class="contact-form" method="POST" action="#">
+        <form class="contact-form" id="contactForm" method="POST" action="#">
           <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            <label for="fullName">Full Name <span class="required-marker">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+            <i class="fas fa-check-circle validation-icon"></i>
+            <i class="fas fa-exclamation-circle validation-icon"></i>
+            <div class="error-message">Please enter your full name (min 2 characters)</div>
           </div>
           
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            <label for="email">Email Address <span class="required-marker">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address">
+            <i class="fas fa-check-circle validation-icon"></i>
+            <i class="fas fa-exclamation-circle validation-icon"></i>
+            <div class="error-message">Please enter a valid email address</div>
           </div>
-          
-     
           
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your travel plans, questions, or how we can help you discover Ethiopia..." required></textarea>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            <i class="fas fa-check-circle validation-icon"></i>
+            <i class="fas fa-exclamation-circle validation-icon"></i>
+            <div class="error-message">Please enter a valid phone number</div>
           </div>
           
-          <div class="submit-container">
-            <button type="submit" class="submit-btn">Send Message</button>
+          <div class="form-group">
+            <label for="subject">Subject <span class="required-marker">*</span></label>
+            <input type="text" id="subject" name="subject" placeholder="Enter message subject">
+            <i class="fas fa-check-circle validation-icon"></i>
+            <i class="fas fa-exclamation-circle validation-icon"></i>
+            <div class="error-message">Please enter a subject (min 5 characters)</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message <span class="required-marker">*</span></label>
+            <textarea id="message" name="message" placeholder="Tell us about your travel plans, questions, or how we can help you discover Ethiopia..."></textarea>
+            <i class="fas fa-check-circle validation-icon"></i>
+            <i class="fas fa-exclamation-circle validation-icon"></i>
+            <div class="error-message">Please enter a message (min 10 characters)</div>
+          </div>
+          
+          <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+          
+          <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
           </div>
         </form>
-      </section>
-      
-      <aside class="contact-info-section">
+        
         <div class="contact-info">
           <h3>Contact Information</h3>
           <div class="info-item">
@@ -568,25 +388,199 @@
           </div>
           <div class="info-item">
             <strong>Address:</strong>
-            <span> 4 killo, Addis Ababa, Ethiopia</span>
+            <span>4 killo, Addis Ababa, Ethiopia</span>
           </div>
           <div class="info-item">
             <strong>Hours:</strong>
             <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
           </div>
-          <div class="info-item">
-            <strong>Weekend:</strong>
-            <span>Sat: 10:00 AM - 4:00 PM</span>
-          </div>
         </div>
-        
-      
-      </aside>
+      </section>
     </div>
+
+    <img class="side-image" src="./images/contact2.jpeg" alt="Ethiopian cultural event">
   </main>
   
   <footer>
-    <p>&copy; 2025 Tourism Ethiopia. All rights reserved.</p>
+    &copy; 2025 Tourism Ethiopia. All rights reserved.
   </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll back to top">↑</button>
+
+  <script>
+    // Hamburger toggle
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      nav.classList.toggle("show");
+    });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Form validation
+    const contactForm = document.getElementById('contactForm');
+    const fullName = document.getElementById('fullName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+
+    // Show error function
+    function showError(input, message) {
+      const formGroup = input.parentElement;
+      formGroup.classList.remove('success');
+      formGroup.classList.add('error');
+      const errorMessage = formGroup.querySelector('.error-message');
+      errorMessage.textContent = message;
+    }
+
+    // Show success function
+    function showSuccess(input) {
+      const formGroup = input.parentElement;
+      formGroup.classList.remove('error');
+      formGroup.classList.add('success');
+    }
+
+    // Check required fields
+    function checkRequired(inputArr) {
+      let isRequired = false;
+      inputArr.forEach(input => {
+        if (input.value.trim() === '') {
+          showError(input, `${getFieldName(input)} is required`);
+          isRequired = true;
+        } else {
+          showSuccess(input);
+        }
+      });
+      return isRequired;
+    }
+
+    // Get field name
+    function getFieldName(input) {
+      return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+    }
+
+    // Check length
+    function checkLength(input, min, max) {
+      if (input.value.length < min) {
+        showError(input, `${getFieldName(input)} must be at least ${min} characters`);
+        return false;
+      } else if (input.value.length > max) {
+        showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+        return false;
+      } else {
+        showSuccess(input);
+        return true;
+      }
+    }
+
+    // Validate email
+    function checkEmail(input) {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (re.test(input.value.trim())) {
+        showSuccess(input);
+        return true;
+      } else {
+        showError(input, 'Email is not valid');
+        return false;
+      }
+    }
+
+    // Validate phone
+    function checkPhone(input) {
+      // Allow empty phone number
+      if (input.value.trim() === '') {
+        showSuccess(input);
+        return true;
+      }
+      
+      const re = /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,3}[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,4}$/;
+      if (re.test(input.value.trim())) {
+        showSuccess(input);
+        return true;
+      } else {
+        showError(input, 'Phone number is not valid');
+        return false;
+      }
+    }
+
+    // Validate form on input events
+    function setupFieldValidation(input, validationFn) {
+      input.addEventListener('input', () => {
+        if (input.value.trim() !== '' || input === phone) {
+          validationFn(input);
+        } else {
+          const formGroup = input.parentElement;
+          formGroup.classList.remove('success');
+          formGroup.classList.remove('error');
+        }
+      });
+      
+      input.addEventListener('blur', () => {
+        if (input.value.trim() !== '' || input === phone) {
+          validationFn(input);
+        }
+      });
+    }
+
+    // Setup validation for each field
+    setupFieldValidation(fullName, (input) => checkLength(input, 2, 50));
+    setupFieldValidation(email, checkEmail);
+    setupFieldValidation(phone, checkPhone);
+    setupFieldValidation(subject, (input) => checkLength(input, 5, 100));
+    setupFieldValidation(message, (input) => checkLength(input, 10, 1000));
+
+    // Form submit event
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Check required fields
+      if (checkRequired([fullName, email, subject, message])) {
+        return;
+      }
+      
+      // Validate all fields
+      const isFullNameValid = checkLength(fullName, 2, 50);
+      const isEmailValid = checkEmail(email);
+      const isPhoneValid = checkPhone(phone);
+      const isSubjectValid = checkLength(subject, 5, 100);
+      const isMessageValid = checkLength(message, 10, 1000);
+      
+      if (isFullNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
+        // Form is valid - simulate submission
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        
+        // Simulate API call
+        setTimeout(() => {
+          successMessage.style.display = 'block';
+          contactForm.reset();
+          
+          // Remove validation states
+          document.querySelectorAll('.form-group').forEach(group => {
+            group.classList.remove('success');
+            group.classList.remove('error');
+          });
+          
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Send Message';
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 5000);
+        }, 1500);
+      }
+    });
+  </script>
 </body>
 </html>
