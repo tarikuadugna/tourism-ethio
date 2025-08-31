@@ -25,413 +25,263 @@
       z-index: 1000;
     }
 
-    .logo {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      letter-spacing: 1px;
-    }
+    .logo img { height: 40px; }
 
-    /* Hamburger button */
-    .menu-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 20px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      z-index: 1002;
-    }
-    .menu-btn span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
+    .menu-btn { display: none; flex-direction: column; width: 28px; height: 20px; cursor: pointer; border: none; background: none; }
+    .menu-btn span { height: 3px; width: 100%; background: #fff; margin: 3px 0; transition: all 0.3s ease; }
+    .menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-btn.active span:nth-child(2) { opacity: 0; }
+    .menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* Nav */
-    nav {
-      display: flex;
-      gap: 8px;
-    }
+    nav { display: flex; gap: 10px; }
     nav a {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(5px);
-      color: #fff;
-      padding: 0.7rem 1.3rem;
       text-decoration: none;
+      padding: 0.7rem 1.3rem;
       border-radius: 6px;
-      font-size: 0.9rem;
+      color: #fff;
       font-weight: 500;
-      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
+      transition: 0.3s;
     }
-    nav a:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    nav a.active {
-      background: rgba(255,255,255,0.25);
-    }
+    nav a:hover { background: rgba(255,255,255,0.25); }
+    nav a.active { background: rgba(255,255,255,0.4); }
 
-    /* Mobile nav */
-    @media (max-width: 768px) {
+    @media(max-width:768px) {
       .menu-btn { display: flex; }
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: linear-gradient(135deg, #654321 0%, #8b4513 100%);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 1rem;
-        border-radius: 0 0 12px 12px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      }
+      nav { display: none; flex-direction: column; width: 100%; background: #8b4513; position: absolute; top: 100%; left: 0; }
       nav.show { display: flex; }
-      nav a { margin: 4px 0; text-align: center; }
+      nav a { text-align: center; padding: 1rem; }
     }
 
     .page-title {
-      padding: 2rem;
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #8b4513;
       text-align: center;
-      background: rgba(255,255,255,0.8);
+      font-size: 2.5rem;
+      color: #8b4513;
       margin: 2rem auto;
-      width: 95%;
+      background: rgba(255,255,255,0.8);
+      padding: 1rem;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      width: 90%;
     }
 
     .video-container {
-      max-width: 1400px;
-      margin: 0 auto 2rem;
+      max-width: 1300px;
+      margin: auto;
       padding: 2rem;
-      background: rgba(255,255,255,0.6);
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      width: 95%;
     }
-
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-
     .video-item {
-      position: relative;
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      text-decoration: none;
-      color: inherit;
-      animation: fadeInUp 0.6s ease forwards;
-      opacity: 0;
-      transform: translateY(20px);
+      transition: 0.3s;
     }
-    .video-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    }
-
+    .video-item:hover { transform: translateY(-8px); }
     .video-thumbnail {
-      width: 100%;
+      position: relative;
       aspect-ratio: 16/9;
       background-size: cover;
       background-position: center;
-      position: relative;
     }
-
     .play-button {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       border-left: 30px solid rgba(255,255,255,0.9);
       border-top: 18px solid transparent;
       border-bottom: 18px solid transparent;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-      transition: all 0.3s ease;
     }
-    .video-item:hover .play-button {
-      transform: translate(-50%, -50%) scale(1.2);
-      border-left-color: #fff;
-    }
-
-    .video-info {
-      padding: 1rem;
-    }
-    .video-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #8b4513;
-      margin-bottom: 0.3rem;
-    }
-    .video-description {
-      font-size: 0.9rem;
-      color: #555;
-    }
+    .video-info { padding: 1rem; }
+    .video-title { color: #8b4513; font-weight: bold; margin-bottom: .5rem; }
+    .video-description { font-size: .9rem; color: #555; }
 
     footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.95rem;
+      font-size: .9rem;
       color: #666;
       margin-top: 2rem;
     }
-
-    /* Scroll-to-top */
     #scrollTopBtn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #8b4513;
-      color: #fff;
-      border: none;
-      padding: 0.7rem 1rem;
-      font-size: 1.2rem;
-      border-radius: 50%;
-      cursor: pointer;
+      position: fixed; bottom: 25px; right: 25px;
+      background: #8b4513; color: #fff;
+      border: none; padding: 0.7rem 1rem;
+      border-radius: 50%; cursor: pointer;
       display: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1500;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .video-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .video-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Tourism Ethiopia</div>
-    <button class="menu-btn" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="video.html" class="active">Video</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <h1 class="page-title">Discover Ethiopia Through Video</h1>
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="Tourism Ethiopia"></a>
+  </div>
+  <button class="menu-btn"><span></span><span></span><span></span></button>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html" class="active">Video</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main class="video-container">
-    <div class="video-grid">
-      <a href="https://www.youtube.com/watch?v=iPd0GJOHRC4" target="_blank" class="video-item">
-        <div class="video-thumbnail" style="background-image:url('./images/aksum.jpg')">
-          <div class="play-button"></div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Aksum Historical Sites</h2>
-          <p class="video-description">Explore ancient churches and wonders</p>
-        </div>
-      </a>
-      
-        <!-- Video 2 -->
-      <a href="https://www.youtube.com/watch?v=eaejk-auNDg" target="_blank" class="video-item"
-         aria-label="Watch video: Simien Mountains Adventure">
-        <div class="video-thumbnail ethiopia-2">
-          <div class="play-button"></div>
-          <div class="video-duration">13:23</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Simien Mountains Adventure</h2>
-          <p class="video-description">Breathtaking landscapes and unique wildlife</p>
-        </div>
-      </a>
+<h1 class="page-title">Discover Ethiopia Through Video</h1>
 
-      <!-- Video 3 -->
-      <a href="https://www.youtube.com/watch?v=TKT5MloFYcQ" target="_blank" class="video-item"
-         aria-label="Watch video: Ethiopian Coffee Culture">
-        <div class="video-thumbnail ethiopia-3">
-          <div class="play-button"></div>
-          <div class="video-duration">01:12</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Ethiopian Coffee Culture</h2>
-          <p class="video-description">The birthplace of coffee and its traditions</p>
-        </div>
-      </a>
+<main class="video-container">
+  <div class="video-grid">
 
-      <!-- Video 4 -->
-      <a href="https://www.youtube.com/watch?v=hriqG86lgOM" target="_blank" class="video-item"
-         aria-label="Watch video: Danakil Depression">
-        <div class="video-thumbnail ethiopia-4">
-          <div class="play-button"></div>
-          <div class="video-duration">03:43</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Danakil Depression</h2>
-          <p class="video-description">One of the hottest places on Earth</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=iPd0GJOHRC4" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/aksum.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Aksum Historical Sites</h2>
+        <p class="video-description">Explore ancient churches and wonders</p>
+      </div>
+    </a>
 
-      <!-- Video 5 -->
-      <a href="https://www.youtube.com/watch?v=excYNB26fhs" target="_blank" class="video-item"
-         aria-label="Watch video: Lalibela Rock Churches">
-        <div class="video-thumbnail ethiopia-5">
-          <div class="play-button"></div>
-          <div class="video-duration">13:34</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Lalibela Rock Churches</h2>
-          <p class="video-description">Medieval architecture carved from stone</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=eaejk-auNDg" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/simien.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Simien Mountains Adventure</h2>
+        <p class="video-description">Breathtaking landscapes and unique wildlife</p>
+      </div>
+    </a>
 
-      <!-- Video 6 -->
-      <a href="https://www.youtube.com/watch?v=cfSIa5FAR2Y" target="_blank" class="video-item"
-         aria-label="Watch video: Omo Valley Tribes">
-        <div class="video-thumbnail ethiopia-6">
-          <div class="play-button"></div>
-          <div class="video-duration">29:43</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Omo Valley Tribes</h2>
-          <p class="video-description">Rich cultural diversity and traditions</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=TKT5MloFYcQ" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/coffee.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Ethiopian Coffee Culture</h2>
+        <p class="video-description">The birthplace of coffee and its traditions</p>
+      </div>
+    </a>
 
-      <!-- Video 7 -->
-      <a href="https://www.youtube.com/watch?v=c6nyhFeAgNM" target="_blank" class="video-item"
-         aria-label="Watch video: Fasilides">
-        <div class="video-thumbnail ethiopia-7">
-          <div class="play-button"></div>
-          <div class="video-duration">06:26</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Fasilides</h2>
-          <p class="video-description">Fasilides was Emperor of Ethiopia from 1632 to his death on 18 October 1667.</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=hriqG86lgOM" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/danakil.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Danakil Depression</h2>
+        <p class="video-description">One of the hottest places on Earth</p>
+      </div>
+    </a>
 
-      <!-- Video 8 -->
-      <a href="https://www.youtube.com/watch?v=jlmgms9t1F4" target="_blank" class="video-item"
-         aria-label="Watch video: Addis Ababa City Tour">
-        <div class="video-thumbnail ethiopia-8">
-          <div class="play-button"></div>
-          <div class="video-duration">25:26</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Addis Ababa City Tour</h2>
-          <p class="video-description">Modern capital with ancient heritage</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=excYNB26fhs" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/lalibela.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Lalibela Rock Churches</h2>
+        <p class="video-description">Medieval architecture carved from stone</p>
+      </div>
+    </a>
 
-      <!-- Video 9 -->
-      <a href="https://www.youtube.com/watch?v=MHVs_FPv2M8" target="_blank" class="video-item"
-         aria-label="Watch video: Harar">
-        <div class="video-thumbnail ethiopia-9">
-          <div class="play-button"></div>
-          <div class="video-duration">14:16</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Harar</h2>
-          <p class="video-description">Harar Jugol Wall</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=cfSIa5FAR2Y" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/omo.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Omo Valley Tribes</h2>
+        <p class="video-description">Rich cultural diversity and traditions</p>
+      </div>
+    </a>
 
-      <!-- Video 10 -->
-      <a href="https://www.youtube.com/watch?v=NugDdg9X68s" target="_blank" class="video-item"
-         aria-label="Watch video: Abay River">
-        <div class="video-thumbnail ethiopia-10">
-          <div class="play-button"></div>
-          <div class="video-duration">00:18</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Abay River</h2>
-          <p class="video-description">Largest river in the world</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=c6nyhFeAgNM" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/fasilides.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Fasilides</h2>
+        <p class="video-description">The castle of Emperor Fasilides</p>
+      </div>
+    </a>
 
-      <!-- Video 11 -->
-      <a href="https://www.youtube.com/watch?v=FDBs1u4NOfk" target="_blank" class="video-item"
-         aria-label="Watch video: Bale Mountains">
-        <div class="video-thumbnail ethiopia-11">
-          <div class="play-button"></div>
-          <div class="video-duration">15:43</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Bale Mountains</h2>
-          <p class="video-description">Wildlife sanctuary and pristine wilderness</p>
-        </div>
-      </a>
+    <a href="https://www.youtube.com/watch?v=jlmgms9t1F4" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/addis.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Addis Ababa City Tour</h2>
+        <p class="video-description">Modern capital with ancient heritage</p>
+      </div>
+    </a>
 
-      <!-- Video 12 -->
-      <a href="https://www.youtube.com/watch?v=U_DdCNWF_2Q" target="_blank" class="video-item"
-         aria-label="Watch video: Ethiopian Festivals">
-        <div class="video-thumbnail ethiopia-12">
-          <div class="play-button"></div>
-          <div class="video-duration">01:31</div>
-        </div>
-        <div class="video-info">
-          <h2 class="video-title">Ethiopian Festivals</h2>
-          <p class="video-description">Celebrations and cultural events</p>
-        </div>
-      </a>
-    </div>
-  </main>
+    <a href="https://www.youtube.com/watch?v=MHVs_FPv2M8" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/harar.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Harar</h2>
+        <p class="video-description">Harar Jugol Wall</p>
+      </div>
+    </a>
 
-  <footer>
-    <p>&copy; 2025 Tourism Ethiopia - Discover the Beauty of Ethiopia</p>
-  </footer>
+    <a href="https://www.youtube.com/watch?v=NugDdg9X68s" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/abay.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Abay River</h2>
+        <p class="video-description">The Blue Nile in Ethiopia</p>
+      </div>
+    </a>
 
-  <button id="scrollTopBtn" aria-label="Scroll back to top">↑</button>
+    <a href="https://www.youtube.com/watch?v=FDBs1u4NOfk" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/bale.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Bale Mountains</h2>
+        <p class="video-description">Wildlife sanctuary and pristine wilderness</p>
+      </div>
+    </a>
 
-  <script>
-    // Hamburger toggle
-    const menuBtn = document.querySelector(".menu-btn");
-    const nav = document.querySelector("nav");
-    menuBtn.addEventListener("click", () => {
-      menuBtn.classList.toggle("active");
-      nav.classList.toggle("show");
-    });
+    <a href="https://www.youtube.com/watch?v=U_DdCNWF_2Q" target="_blank" class="video-item">
+      <div class="video-thumbnail" style="background-image:url('./images/festivals.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Ethiopian Festivals</h2>
+        <p class="video-description">Celebrations and cultural events</p>
+      </div>
+    </a>
 
-    // Scroll-to-top button
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Tourism Ethiopia - Discover the Beauty of Ethiopia</p>
+</footer>
+
+<button id="scrollTopBtn">↑</button>
+
+<script>
+  const menuBtn = document.querySelector(".menu-btn");
+  const nav = document.querySelector("nav");
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("active");
+    nav.classList.toggle("show");
+  });
+
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
 </body>
 </html>
