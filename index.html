@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tourism Ethiopia</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f5f3f0 0%, #e8e2d8 100%);
@@ -22,51 +18,44 @@
       padding: 1rem 2rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    /* Hide checkbox */
-    #menu-toggle {
+    /* Hamburger button */
+    .menu-btn {
       display: none;
-    }
-
-    .menu-icon {
-      display: none;
-      position: absolute;
-      top: 50%;
-      right: 1.5rem;
-      transform: translateY(-50%);
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
       cursor: pointer;
+      background: none;
+      border: none;
       z-index: 1002;
-      width: 30px;
-      height: 24px;
-      transition: all 0.3s ease;
     }
-
-    .menu-icon span {
+    .menu-btn span {
       display: block;
-      width: 100%;
       height: 3px;
+      width: 100%;
       background: #fff;
-      margin: 6px 0;
-      transition: all 0.3s ease;
       border-radius: 2px;
+      transition: all 0.3s ease;
     }
-
-    /* Hamburger animation */
-    #menu-toggle:checked + .menu-icon span:nth-child(1) {
+    .menu-btn.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
-    #menu-toggle:checked + .menu-icon span:nth-child(2) {
+    .menu-btn.active span:nth-child(2) {
       opacity: 0;
     }
-    #menu-toggle:checked + .menu-icon span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
+    .menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
     nav {
       display: flex;
-      justify-content: end;
-      flex-wrap: wrap;
+      gap: 8px;
       transition: all 0.3s ease;
     }
     nav a {
@@ -75,39 +64,20 @@
       color: #fff;
       padding: 0.8rem 1.5rem;
       text-decoration: none;
-      margin: 0 2px;
       border-radius: 6px;
       font-size: 0.95rem;
       font-weight: 500;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
-    nav a:hover,
-    nav a:focus {
+    nav a:hover {
       background: rgba(255,255,255,0.2);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    nav a.active {
-      background: rgba(255,255,255,0.25);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    nav a:focus-visible {
-      outline: 3px solid #ffd700;
-      outline-offset: 2px;
-    }
 
     /* Mobile styles */
     @media (max-width: 768px) {
-      header {
-        padding: 2rem 1rem;
-      }
-      
-      .menu-icon {
-        display: block;
-      }
-      
+      .menu-btn { display: flex; }
       nav {
         display: none;
         flex-direction: column;
@@ -120,38 +90,12 @@
         padding: 1rem;
         box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         border-radius: 0 0 12px 12px;
-        animation: slideDown 0.3s ease;
       }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      nav a {
-        margin: 4px 0;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        background: rgba(255,255,255,0.1);
-      }
-
-      nav a:hover {
-        background: rgba(255,255,255,0.2);
-        transform: scale(1.02);
-      }
-
-      #menu-toggle:checked + .menu-icon + nav {
-        display: flex;
-      }
+      nav.show { display: flex; }
+      nav a { margin: 4px 0; text-align: center; }
     }
 
+    /* Hero slideshow */
     .hero {
       width: 95%;
       margin: 2rem auto;
@@ -167,8 +111,6 @@
       height: 100%;
       object-fit: cover; 
       position: absolute;
-      left: 0;
-      top: 0;
       opacity: 0; 
       animation: slideShow 12s infinite;
       transition: opacity 1s ease-in-out;
@@ -176,7 +118,6 @@
     .hero img:nth-child(1) { animation-delay: 0s; }
     .hero img:nth-child(2) { animation-delay: 4s; }
     .hero img:nth-child(3) { animation-delay: 8s; }
-
     @keyframes slideShow {
       0% { opacity: 0; }
       8% { opacity: 1; }
@@ -191,12 +132,11 @@
       color: #fff;
       font-size: 1.5rem;
       font-weight: bold;
-      background: linear-gradient(135deg, rgba(139,69,19,0.9) 0%, rgba(160,82,45,0.8) 100%);
+      background: rgba(139,69,19,0.8);
       padding: 1rem 1.5rem;
       border-radius: 10px;
       backdrop-filter: blur(5px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      transition: opacity 0.5s ease;
     }
 
     main {
@@ -213,78 +153,14 @@
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      backdrop-filter: blur(5px);
     }
-    .intro h2 {
-      margin-bottom: 1.5rem;
-      color: #8b4513;
-      font-size: 2rem;
-      font-weight: 600;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .intro h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background: linear-gradient(90deg, #8b4513, #cd853f);
-      border-radius: 2px;
-    }
-    .intro p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      text-align: justify;
-      color: #444;
-      text-align: left;
-    }
-    .right-content {
-      width: 220px;
-    }
-
-    @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-        padding: 1rem;
-      }
-      .right-content { 
-        width: 100%;
-        max-width: 300px;
-        align-self: center;
-      }
-      .hero {
-        height: 300px;
-      }
-      .hero-text {
-        font-size: 1.2rem;
-        bottom: 15px;
-        left: 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .right-content { display: none; }
-      .left-content {
-        padding: 1.5rem;
-      }
-      .intro h2 {
-        font-size: 1.7rem;
-      }
-    }
-
+    .right-content { width: 220px; }
     .sidebar-image {
       width: 100%;
-      height: 180px;
       border-radius: 10px;
       margin-bottom: 1rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    .sidebar-image:hover {
-      transform: scale(1.05);
     }
 
     .gallery {
@@ -293,39 +169,16 @@
       gap: 1.5rem;
       margin: 2rem auto;
       width: 95%;
-      padding: 2rem;
-      background: rgba(255,255,255,0.6);
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
     }
     .gallery img {
       width: 100%;
       height: 120px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
-    .gallery img:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 1.5rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .gallery {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-      }
-    }
+    .gallery img:hover { transform: scale(1.05); }
 
     footer {
       text-align: center;
@@ -333,30 +186,54 @@
       font-size: 0.95rem;
       color: #666;
       margin-top: 2rem;
-      background: linear-gradient(135deg, rgba(139,69,19,0.1) 0%, rgba(205,133,63,0.1) 100%);
-      border-top: 1px solid rgba(139,69,19,0.2);
     }
 
-    html {
-      scroll-behavior: smooth;
+    /* Scroll-to-top button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #8b4513;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1rem;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1500;
     }
 
-    *:focus {
-      outline: 2px solid #ffd700;
-      outline-offset: 2px;
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2000;
+    }
+    .lightbox.active { visibility: visible; opacity: 1; }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <header>
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <!-- Navigation -->
-    <nav aria-label="Main Navigation">
+    <h1 style="color:white; font-size:1.2rem;">Tourism Ethiopia</h1>
+    <button class="menu-btn" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
       <a href="index.html" class="active">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="video.html">Video</a>
@@ -375,7 +252,6 @@
   <main>
     <div class="left-content">
       <section class="intro">
-        <h1>Tourism Ethiopia</h1> 
         <h2>Welcome to Ethiopia</h2>
         <p>
           Ethiopia invites you to discover why it is the origin of so much. 
@@ -390,15 +266,55 @@
     </div>
   </main>
   
-  <section class="gallery" id="gallery" aria-label="Tourism Image Gallery">
-    <img src="./images/lalibela.jpg" alt="Historic rock-hewn churches of Lalibela">
+  <section class="gallery">
+    <img src="./images/lalibela.jpg" alt="Historic Lalibela">
     <img src="./images/sof.jpeg" alt="Sof Omar Caves">
-    <img src="./images/harar.jpeg" alt="Historic walled city of Harar">
-    <img src="./images/konso.jpg" alt="Konso cultural landscape">
+    <img src="./images/harar.jpeg" alt="Historic Harar">
+    <img src="./images/konso.jpg" alt="Konso landscape">
   </section>
   
   <footer>
     &copy; 2025 Tourism Ethiopia. All rights reserved.
   </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll back to top">↑</button>
+
+  <script>
+    // Hamburger toggle
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      nav.classList.toggle("show");
+    });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const lightbox = document.createElement("div");
+    lightbox.classList.add("lightbox");
+    document.body.appendChild(lightbox);
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightbox.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+      });
+    });
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+    });
+
+    const heroText = document.querySelector(".hero-text");
+    window.addEventListener("scroll", () => {
+      heroText.style.opacity = window.scrollY > 50 ? "0.7" : "1";
+    });
+  </script>
 </body>
 </html>
