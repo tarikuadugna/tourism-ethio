@@ -200,6 +200,26 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    
+    /* Book Now Button */
+    .book-btn {
+      background: linear-gradient(135deg, #8b4513, #cd853f);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      width: 100%;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(139,69,19,0.3);
     }
 
     /* Footer */
@@ -228,25 +248,184 @@
       z-index: 1500;
     }
 
-    /* Lightbox */
-    .lightbox {
+    /* Modal styles */
+    .modal {
+      display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.3s ease;
       z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
     }
-    .lightbox.active { visibility: visible; opacity: 1; }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
+    .modal-content {
+      background: white;
+      margin: 2% auto;
+      padding: 0;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+    }
+    .close:hover { color: #000; }
+
+    .modal-header {
+      background: linear-gradient(135deg, #8b4513, #cd853f);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px 15px 0 0;
+    }
+    .modal-body {
+      padding: 2rem;
+    }
+    .destination-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
       border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Booking form */
+    .booking-section {
+      background: #f8f8f8;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Hotels section */
+    .hotels-section {
+      margin: 2rem 0;
+    }
+    .hotel-item {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .hotel-image {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .hotel-info {
+      flex: 1;
+    }
+    .hotel-name {
+      font-weight: 600;
+      color: #8b4513;
+      margin-bottom: 0.25rem;
+    }
+    .hotel-rating {
+      color: #f39c12;
+      font-size: 0.9rem;
+    }
+    .hotel-price {
+      font-weight: bold;
+      color: #cd853f;
+    }
+
+    /* Payment section */
+    .payment-section {
+      background: #fff;
+      border: 2px solid #8b4513;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .payment-method {
+      background: #f8f8f8;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .payment-method:hover,
+    .payment-method.selected {
+      border-color: #8b4513;
+      background: rgba(139,69,19,0.1);
+    }
+    .payment-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .total-price {
+      background: linear-gradient(135deg, #8b4513, #cd853f);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .total-amount {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .confirm-booking {
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    .confirm-booking:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(39,174,96,0.3);
     }
 
     /* Responsive */
@@ -257,6 +436,17 @@
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .page-title { font-size: 2rem; }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .hotel-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      .modal-content {
+        width: 95%;
+        margin: 5% auto;
+      }
     }
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; }
@@ -286,88 +476,100 @@
   
   <div class="gallery-container">
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="lalibela">
         <img src="./images/lalibela.jpg" alt="Rock-hewn churches of Lalibela">
         <h3>Rock-hewn Churches of Lalibela</h3>
         <p>Carved directly into volcanic rock in the 12th century, these churches represent one of the world's greatest architectural achievements.</p>
         <span class="location-tag">Lalibela, Amhara</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="simien">
         <img src="./images/mountain.jpg" alt="Simien Mountains National Park">
         <h3>Simien Mountains National Park</h3>
         <p>Dramatic escarpments, valleys, and unique wildlife like the Gelada baboon and Ethiopian wolf make this Africa's best trekking destination.</p>
         <span class="location-tag">Amhara Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="danakil">
         <img src="./images/dankil.jpg" alt="Danakil Depression landscape">
         <h3>Danakil Depression</h3>
         <p>One of the hottest, lowest, and most geologically active places on Earth, featuring salt flats, sulfur springs, and volcanoes.</p>
         <span class="location-tag">Afar Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="harar">
         <img src="./images/harar.jpeg" alt="Historic Harar city walls">
         <h3>Historic Fortified City of Harar</h3>
         <p>Known as the fourth holy city of Islam, Harar has 82 mosques, over 100 shrines, and unique cultural heritage.</p>
         <span class="location-tag">Harari Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="omo">
         <img src="./images/omo.jpeg" alt="Omo Valley tribes">
         <h3>Omo Valley Cultural Heritage</h3>
         <p>Diverse indigenous communities with unique customs, languages, and artistic expressions live in the Omo Valley.</p>
         <span class="location-tag">Southern Nations</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="bluenile">
         <img src="./images/abaynew.jpeg" alt="Blue Nile Falls Ethiopia">
         <h3>Blue Nile Falls (Tis Abay)</h3>
         <p>Known as "Tis Abay" or "smoking water," these 45-meter waterfalls are most spectacular during the rainy season.</p>
         <span class="location-tag">Amhara Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="aksum">
         <img src="./images/aksum.jpg" alt="Aksum Obelisks">
         <h3>Aksum Archaeological Site</h3>
         <p>The ancient capital of the Kingdom of Aksum features monumental granite obelisks and royal tombs.</p>
         <span class="location-tag">Tigray Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="bale">
         <img src="./images/bale.jpeg" alt="Bale Mountains Ethiopia">
         <h3>Bale Mountains National Park</h3>
         <p>A biodiversity hotspot with Afroalpine habitats, home to the endangered Ethiopian wolf and over 270 bird species.</p>
         <span class="location-tag">Oromia Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="lake">
         <img src="./images/abaynew.jpeg" alt="Lake Tana Monasteries">
         <h3>Lake Tana Monasteries</h3>
         <p>Ethiopia's largest lake, dotted with island monasteries that house priceless manuscripts and religious art.</p>
         <span class="location-tag">Amhara Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="konso">
         <img src="./images/konso.jpg" alt="Konso Cultural Landscape">
         <h3>Konso Cultural Landscape</h3>
         <p>Stone-walled terraces cultivated for over 400 years, a UNESCO site showcasing sustainable farming.</p>
         <span class="location-tag">Southern Nations</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="gheralta">
         <img src="./images/geherta.jpeg" alt="Gheralta rock churches">
         <h3>Gheralta Rock Churches</h3>
         <p>Cliffside churches from the 13th century, accessible by steep climbs and home to ancient artifacts.</p>
         <span class="location-tag">Tigray Region</span>
+        <button class="book-btn">Book Now</button>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" data-destination="coffee">
         <img src="./images/coffee.jpeg" alt="Ethiopian coffee ceremony">
         <h3>Ethiopian Coffee Culture</h3>
         <p>Traditional coffee ceremonies involve roasting, grinding, and brewing coffee—central to Ethiopian hospitality.</p>
         <span class="location-tag">Nationwide Tradition</span>
+        <button class="book-btn">Book Now</button>
       </div>
     </div>
   </div>
@@ -377,6 +579,112 @@
   </footer>
 
   <button id="scrollTopBtn" aria-label="Scroll back to top">↑</button>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-header">
+        <h2 id="modalTitle">Book Your Adventure</h2>
+      </div>
+      <div class="modal-body">
+        <img id="destinationImage" class="destination-image" src="" alt="">
+        
+        <div id="destinationDetails">
+          <!-- Destination details will be populated here -->
+        </div>
+
+        <div class="booking-section">
+          <h3>Booking Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Check-in Date</label>
+              <input type="date" id="checkin" required>
+            </div>
+            <div class="form-group">
+              <label>Check-out Date</label>
+              <input type="date" id="checkout" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Number of Travelers</label>
+              <select id="travelers">
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5+ People</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tour Package</label>
+              <select id="package">
+                <option value="basic">Basic Package</option>
+                <option value="premium">Premium Package</option>
+                <option value="luxury">Luxury Package</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotels-section">
+          <h3>Recommended Hotels</h3>
+          <div id="hotelsList">
+            <!-- Hotels will be populated here -->
+          </div>
+        </div>
+
+        <div class="payment-section">
+          <h3>Payment Information</h3>
+          <div class="payment-methods">
+            <div class="payment-method" data-method="card">
+              <div class="payment-icon">💳</div>
+              <div>Credit Card</div>
+            </div>
+            <div class="payment-method" data-method="paypal">
+              <div class="payment-icon">🏦</div>
+              <div>PayPal</div>
+            </div>
+            <div class="payment-method" data-method="bank">
+              <div class="payment-icon">🏛️</div>
+              <div>Bank Transfer</div>
+            </div>
+          </div>
+
+          <div id="cardDetails" class="payment-details" style="display:none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Cardholder Name</label>
+                <input type="text" placeholder="Full Name on Card">
+              </div>
+              <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" placeholder="1234 5678 9012 3456">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="text" placeholder="MM/YY">
+              </div>
+              <div class="form-group">
+                <label>CVV</label>
+                <input type="text" placeholder="123">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="total-price">
+          <div>Total Amount</div>
+          <div class="total-amount" id="totalAmount">$299</div>
+        </div>
+
+        <button class="confirm-booking">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Hamburger toggle
@@ -396,21 +704,381 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Lightbox
-    const galleryImages = document.querySelectorAll(".gallery-item img");
-    const lightbox = document.createElement("div");
-    lightbox.classList.add("lightbox");
-    document.body.appendChild(lightbox);
+    // Destination data
+    const destinations = {
+      lalibela: {
+        title: "Rock-hewn Churches of Lalibela",
+        price: 299,
+        description: "Carved directly into volcanic rock in the 12th century, these churches represent one of the world's greatest architectural achievements.",
+        location: "Lalibela, Amhara Region",
+        duration: "3 Days / 2 Nights",
+        highlights: [
+          "Visit all 11 rock-hewn churches",
+          "Traditional Ethiopian coffee ceremony",
+          "Local cultural performances",
+          "Professional guide included"
+        ],
+        hotels: [
+          { name: "Lalibela Lodge", rating: "⭐⭐⭐⭐⭐", price: "$180/night" },
+          { name: "Mountain View Hotel", rating: "⭐⭐⭐⭐", price: "$120/night" },
+          { name: "Roha Hotel", rating: "⭐⭐⭐", price: "$80/night" }
+        ]
+      },
+      simien: {
+        title: "Simien Mountains National Park",
+        price: 449,
+        description: "Dramatic escarpments, valleys, and unique wildlife like the Gelada baboon and Ethiopian wolf make this Africa's best trekking destination.",
+        location: "Simien Mountains National Park, Amhara",
+        duration: "5 Days / 4 Nights",
+        highlights: [
+          "Guided mountain trekking",
+          "Wildlife spotting opportunities",
+          "Camping under the stars",
+          "Local guide and porters included"
+        ],
+        hotels: [
+          { name: "Simien Lodge", rating: "⭐⭐⭐⭐⭐", price: "$200/night" },
+          { name: "Debark Hotel", rating: "⭐⭐⭐", price: "$90/night" },
+          { name: "Mountain Campsite", rating: "⭐⭐⭐", price: "$50/night" }
+        ]
+      },
+      danakil: {
+        title: "Danakil Depression",
+        price: 599,
+        description: "One of the hottest, lowest, and most geologically active places on Earth, featuring salt flats, sulfur springs, and volcanoes.",
+        location: "Danakil Depression, Afar Region",
+        duration: "4 Days / 3 Nights",
+        highlights: [
+          "Visit Erta Ale volcano",
+          "Salt mining experience",
+          "Dallol hydrothermal field",
+          "4WD vehicle included"
+        ],
+        hotels: [
+          { name: "Afar Lodge", rating: "⭐⭐⭐⭐", price: "$160/night" },
+          { name: "Desert Camp", rating: "⭐⭐⭐", price: "$100/night" },
+          { name: "Basic Camping", rating: "⭐⭐", price: "$60/night" }
+        ]
+      },
+      harar: {
+        title: "Historic Fortified City of Harar",
+        price: 349,
+        description: "Known as the fourth holy city of Islam, Harar has 82 mosques, over 100 shrines, and unique cultural heritage.",
+        location: "Harari Region",
+        duration: "2 Days / 1 Night",
+        highlights: [
+          "Visit the old walled city",
+          "Hyena feeding experience",
+          "Traditional Harari houses",
+          "Cultural museum visit"
+        ],
+        hotels: [
+          { name: "Wonderland Hotel", rating: "⭐⭐⭐⭐", price: "$120/night" },
+          { name: "Heritage Plaza", rating: "⭐⭐⭐", price: "$90/night" },
+          { name: "City View Hotel", rating: "⭐⭐⭐", price: "$70/night" }
+        ]
+      },
+      omo: {
+        title: "Omo Valley Cultural Heritage",
+        price: 399,
+        description: "Diverse indigenous communities with unique customs, languages, and artistic expressions live in the Omo Valley.",
+        location: "Omo Valley, Southern Nations",
+        duration: "4 Days / 3 Nights",
+        highlights: [
+          "Visit multiple tribal communities",
+          "Traditional ceremonies",
+          "Local handicraft workshops",
+          "Cultural expert guide"
+        ],
+        hotels: [
+          { name: "Omo Valley Lodge", rating: "⭐⭐⭐⭐", price: "$140/night" },
+          { name: "Turmi Lodge", rating: "⭐⭐⭐", price: "$100/night" },
+          { name: "Community Guesthouse", rating: "⭐⭐", price: "$70/night" }
+        ]
+      },
+      bluenile: {
+        title: "Blue Nile Falls (Tis Abay)",
+        price: 249,
+        description: "Known as 'Tis Abay' or 'smoking water,' these 45-meter waterfalls are most spectacular during the rainy season.",
+        location: "Amhara Region",
+        duration: "1 Day",
+        highlights: [
+          "View the magnificent waterfalls",
+          "Nature walk around the area",
+          "Photography opportunities",
+          "Local guide included"
+        ],
+        hotels: [
+          { name: "Blue Nile Resort", rating: "⭐⭐⭐⭐", price: "$110/night" },
+          { name: "Tis Abay Hotel", rating: "⭐⭐⭐", price: "$80/night" },
+          { name: "Bahir Dar Hotel", rating: "⭐⭐⭐⭐", price: "$100/night" }
+        ]
+      },
+      aksum: {
+        title: "Aksum Archaeological Site",
+        price: 329,
+        description: "The ancient capital of the Kingdom of Aksum features monumental granite obelisks and royal tombs.",
+        location: "Tigray Region",
+        duration: "2 Days / 1 Night",
+        highlights: [
+          "Visit the obelisks and stelae",
+          "Archaeological museum tour",
+          "Queen of Sheba's palace",
+          "Professional guide included"
+        ],
+        hotels: [
+          { name: "Yeha Hotel", rating: "⭐⭐⭐⭐", price: "$130/night" },
+          { name: "Aksum Hotel", rating: "⭐⭐⭐", price: "$90/night" },
+          { name: "Consolar International", rating: "⭐⭐⭐⭐", price: "$110/night" }
+        ]
+      },
+      bale: {
+        title: "Bale Mountains National Park",
+        price: 479,
+        description: "A biodiversity hotspot with Afroalpine habitats, home to the endangered Ethiopian wolf and over 270 bird species.",
+        location: "Oromia Region",
+        duration: "4 Days / 3 Nights",
+        highlights: [
+          "Wildlife watching",
+          "Mountain trekking",
+          "Bird watching opportunities",
+          "Expert naturalist guide"
+        ],
+        hotels: [
+          { name: "Bale Mountain Lodge", rating: "⭐⭐⭐⭐⭐", price: "$220/night" },
+          { name: "Goba Wabe Shebelle", rating: "⭐⭐⭐", price: "$100/night" },
+          { name: "Dinsho Lodge", rating: "⭐⭐⭐", price: "$80/night" }
+        ]
+      },
+      lake: {
+        title: "Lake Tana Monasteries",
+        price: 279,
+        description: "Ethiopia's largest lake, dotted with island monasteries that house priceless manuscripts and religious art.",
+        location: "Amhara Region",
+        duration: "2 Days / 1 Night",
+        highlights: [
+          "Boat trip to the monasteries",
+          "View ancient religious artifacts",
+          "Bird watching on the lake",
+          "Professional guide included"
+        ],
+        hotels: [
+          { name: "Kuriftu Resort", rating: "⭐⭐⭐⭐⭐", price: "$180/night" },
+          { name: "Jacaranda Hotel", rating: "⭐⭐⭐⭐", price: "$120/night" },
+          { name: "Ghion Hotel", rating: "⭐⭐⭐", price: "$90/night" }
+        ]
+      },
+      konso: {
+        title: "Konso Cultural Landscape",
+        price: 299,
+        description: "Stone-walled terraces cultivated for over 400 years, a UNESCO site showcasing sustainable farming.",
+        location: "Southern Nations",
+        duration: "2 Days / 1 Night",
+        highlights: [
+          "Visit traditional Konso villages",
+          "See the ancient terracing systems",
+          "Cultural museum visit",
+          "Local guide included"
+        ],
+        hotels: [
+          { name: "Konso Lodge", rating: "⭐⭐⭐⭐", price: "$130/night" },
+          { name: "Kanta Lodge", rating: "⭐⭐⭐", price: "$90/night" },
+          { name: "Konso Cultural Hotel", rating: "⭐⭐⭐", price: "$70/night" }
+        ]
+      },
+      gheralta: {
+        title: "Gheralta Rock Churches",
+        price: 379,
+        description: "Cliffside churches from the 13th century, accessible by steep climbs and home to ancient artifacts.",
+        location: "Tigray Region",
+        duration: "3 Days / 2 Nights",
+        highlights: [
+          "Visit multiple rock churches",
+          "Spectacular mountain views",
+          "Ancient religious art",
+          "Expert local guide"
+        ],
+        hotels: [
+          { name: "Gheralta Lodge", rating: "⭐⭐⭐⭐⭐", price: "$190/night" },
+          { name: "Korkor Lodge", rating: "⭐⭐⭐⭐", price: "$140/night" },
+          { name: "Hawzien Hotel", rating: "⭐⭐⭐", price: "$80/night" }
+        ]
+      },
+      coffee: {
+        title: "Ethiopian Coffee Culture",
+        price: 199,
+        description: "Traditional coffee ceremonies involve roasting, grinding, and brewing coffee—central to Ethiopian hospitality.",
+        location: "Nationwide Experience",
+        duration: "1 Day",
+        highlights: [
+          "Participate in coffee ceremony",
+          "Learn about coffee production",
+          "Taste different coffee varieties",
+          "Cultural immersion experience"
+        ],
+        hotels: [
+          { name: "Sheraton Addis", rating: "⭐⭐⭐⭐⭐", price: "$250/night" },
+          { name: "Hilton Addis", rating: "⭐⭐⭐⭐⭐", price: "$220/night" },
+          { name: "Radisson Blu", rating: "⭐⭐⭐⭐", price: "$180/night" }
+        ]
+      }
+    };
 
-    galleryImages.forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.classList.add("active");
-        lightbox.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+    // Modal functionality
+    const modal = document.getElementById("bookingModal");
+    const closeBtn = document.querySelector(".close");
+    const bookButtons = document.querySelectorAll(".book-btn");
+
+    // Open modal when clicking book button
+    bookButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const galleryItem = button.closest(".gallery-item");
+        const destination = galleryItem.dataset.destination;
+        openModal(destination);
       });
     });
-    lightbox.addEventListener("click", () => {
-      lightbox.classList.remove("active");
+
+    function openModal(destinationKey) {
+      const dest = destinations[destinationKey];
+      
+      // Update modal content
+      document.getElementById("modalTitle").textContent = dest.title;
+      document.getElementById("destinationImage").src = document.querySelector(`[data-destination="${destinationKey}"] img`).src;
+      
+      // Update destination details
+      const detailsHtml = `
+        <h3>${dest.title}</h3>
+        <p><strong>Location:</strong> ${dest.location}</p>
+        <p><strong>Duration:</strong> ${dest.duration}</p>
+        <p><strong>Price:</strong> $${dest.price}/person</p>
+        <p>${dest.description}</p>
+        <h4>Tour Highlights:</h4>
+        <ul>
+          ${dest.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+        </ul>
+      `;
+      document.getElementById("destinationDetails").innerHTML = detailsHtml;
+
+      // Update hotels list
+      const hotelsHtml = dest.hotels.map(hotel => `
+        <div class="hotel-item">
+          <img class="hotel-image" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='60' viewBox='0 0 80 60'><rect width='80' height='60' fill='%23ddd'/><text x='40' y='35' text-anchor='middle' fill='%23666' font-size='10'>Hotel</text></svg>" alt="${hotel.name}">
+          <div class="hotel-info">
+            <div class="hotel-name">${hotel.name}</div>
+            <div class="hotel-rating">${hotel.rating}</div>
+          </div>
+          <div class="hotel-price">${hotel.price}</div>
+        </div>
+      `).join('');
+      document.getElementById("hotelsList").innerHTML = hotelsHtml;
+
+      // Update total amount
+      updateTotalAmount(dest.price);
+      
+      modal.style.display = "block";
+    }
+
+    // Close modal
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
     });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Payment method selection
+    const paymentMethods = document.querySelectorAll(".payment-method");
+    const cardDetails = document.getElementById("cardDetails");
+
+    paymentMethods.forEach(method => {
+      method.addEventListener("click", () => {
+        paymentMethods.forEach(m => m.classList.remove("selected"));
+        method.classList.add("selected");
+        
+        if (method.dataset.method === "card") {
+          cardDetails.style.display = "block";
+        } else {
+          cardDetails.style.display = "none";
+        }
+      });
+    });
+
+    // Update total amount based on selections
+    function updateTotalAmount(basePrice) {
+      const travelers = parseInt(document.getElementById("travelers").value) || 1;
+      const packageType = document.getElementById("package").value;
+      
+      let multiplier = 1;
+      if (packageType === "premium") multiplier = 1.5;
+      if (packageType === "luxury") multiplier = 2;
+      
+      const total = basePrice * travelers * multiplier;
+      document.getElementById("totalAmount").textContent = `$${total}`;
+    }
+
+    // Add event listeners for form changes
+    document.getElementById("travelers").addEventListener("change", () => {
+      const currentDestination = getCurrentDestination();
+      if (currentDestination) {
+        updateTotalAmount(currentDestination.price);
+      }
+    });
+
+    document.getElementById("package").addEventListener("change", () => {
+      const currentDestination = getCurrentDestination();
+      if (currentDestination) {
+        updateTotalAmount(currentDestination.price);
+      }
+    });
+
+    function getCurrentDestination() {
+      const modalTitle = document.getElementById("modalTitle").textContent;
+      for (const [key, dest] of Object.entries(destinations)) {
+        if (dest.title === modalTitle) {
+          return dest;
+        }
+      }
+      return null;
+    }
+
+    // Confirm booking
+    document.querySelector(".confirm-booking").addEventListener("click", () => {
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+      const travelers = document.getElementById("travelers").value;
+      const selectedPayment = document.querySelector(".payment-method.selected");
+
+      if (!checkin || !checkout) {
+        alert("Please select check-in and check-out dates.");
+        return;
+      }
+
+      if (!selectedPayment) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      // Simulate booking confirmation
+      alert(`🎉 Booking Confirmed!\n\nThank you for choosing Tourism Ethiopia. Your booking details have been sent to your email. Our team will contact you within 24 hours to finalize your adventure.\n\nBooking ID: ET${Math.random().toString(36).substr(2, 9).toUpperCase()}`);
+      
+      modal.style.display = "none";
+    });
+
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("checkin").min = today;
+    document.getElementById("checkout").min = today;
+
+    // Update checkout min date when checkin changes
+    document.getElementById("checkin").addEventListener("change", function() {
+      document.getElementById("checkout").min = this.value;
+    });
+
+    // Initialize first payment method as selected
+    document.querySelector(".payment-method").click();
   </script>
 </body>
 </html>
