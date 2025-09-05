@@ -480,7 +480,7 @@
         <img src="./images/lalibela.jpg" alt="Rock-hewn churches of Lalibela">
         <h3>Rock-hewn Churches of Lalibela</h3>
         <p>Carved directly into volcanic rock in the 12th century, these churches represent one of the world's greatest architectural achievements.</p>
-        <span class="location-tag">Lalibela, Amhara</span>
+        
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -488,7 +488,6 @@
         <img src="./images/mountain.jpg" alt="Simien Mountains National Park">
         <h3>Simien Mountains National Park</h3>
         <p>Dramatic escarpments, valleys, and unique wildlife like the Gelada baboon and Ethiopian wolf make this Africa's best trekking destination.</p>
-        <span class="location-tag">Amhara Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -496,7 +495,6 @@
         <img src="./images/dankil.jpg" alt="Danakil Depression landscape">
         <h3>Danakil Depression</h3>
         <p>One of the hottest, lowest, and most geologically active places on Earth, featuring salt flats, sulfur springs, and volcanoes.</p>
-        <span class="location-tag">Afar Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -504,7 +502,6 @@
         <img src="./images/harar.jpeg" alt="Historic Harar city walls">
         <h3>Historic Fortified City of Harar</h3>
         <p>Known as the fourth holy city of Islam, Harar has 82 mosques, over 100 shrines, and unique cultural heritage.</p>
-        <span class="location-tag">Harari Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -512,7 +509,6 @@
         <img src="./images/omo.jpeg" alt="Omo Valley tribes">
         <h3>Omo Valley Cultural Heritage</h3>
         <p>Diverse indigenous communities with unique customs, languages, and artistic expressions live in the Omo Valley.</p>
-        <span class="location-tag">Southern Nations</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -520,7 +516,6 @@
         <img src="./images/abaynew.jpeg" alt="Blue Nile Falls Ethiopia">
         <h3>Blue Nile Falls (Tis Abay)</h3>
         <p>Known as "Tis Abay" or "smoking water," these 45-meter waterfalls are most spectacular during the rainy season.</p>
-        <span class="location-tag">Amhara Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -528,7 +523,6 @@
         <img src="./images/aksum.jpg" alt="Aksum Obelisks">
         <h3>Aksum Archaeological Site</h3>
         <p>The ancient capital of the Kingdom of Aksum features monumental granite obelisks and royal tombs.</p>
-        <span class="location-tag">Tigray Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -536,7 +530,6 @@
         <img src="./images/bale.jpeg" alt="Bale Mountains Ethiopia">
         <h3>Bale Mountains National Park</h3>
         <p>A biodiversity hotspot with Afroalpine habitats, home to the endangered Ethiopian wolf and over 270 bird species.</p>
-        <span class="location-tag">Oromia Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -544,7 +537,6 @@
         <img src="./images/abaynew.jpeg" alt="Lake Tana Monasteries">
         <h3>Lake Tana Monasteries</h3>
         <p>Ethiopia's largest lake, dotted with island monasteries that house priceless manuscripts and religious art.</p>
-        <span class="location-tag">Amhara Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -552,7 +544,6 @@
         <img src="./images/konso.jpg" alt="Konso Cultural Landscape">
         <h3>Konso Cultural Landscape</h3>
         <p>Stone-walled terraces cultivated for over 400 years, a UNESCO site showcasing sustainable farming.</p>
-        <span class="location-tag">Southern Nations</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -560,7 +551,6 @@
         <img src="./images/geherta.jpeg" alt="Gheralta rock churches">
         <h3>Gheralta Rock Churches</h3>
         <p>Cliffside churches from the 13th century, accessible by steep climbs and home to ancient artifacts.</p>
-        <span class="location-tag">Tigray Region</span>
         <button class="book-btn">Book Now</button>
       </div>
 
@@ -568,7 +558,6 @@
         <img src="./images/coffee.jpeg" alt="Ethiopian coffee ceremony">
         <h3>Ethiopian Coffee Culture</h3>
         <p>Traditional coffee ceremonies involve roasting, grinding, and brewing coffee—central to Ethiopian hospitality.</p>
-        <span class="location-tag">Nationwide Tradition</span>
         <button class="book-btn">Book Now</button>
       </div>
     </div>
@@ -704,225 +693,225 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Destination data
-    const destinations = {
-      lalibela: {
-        title: "Rock-hewn Churches of Lalibela",
-        price: 299,
-        description: "Carved directly into volcanic rock in the 12th century, these churches represent one of the world's greatest architectural achievements.",
-        location: "Lalibela, Amhara Region",
-        duration: "3 Days / 2 Nights",
-        highlights: [
-          "Visit all 11 rock-hewn churches",
-          "Traditional Ethiopian coffee ceremony",
-          "Local cultural performances",
-          "Professional guide included"
-        ],
-        hotels: [
-          { name: "Lalibela Lodge", rating: "⭐⭐⭐⭐⭐", price: "$180/night" },
-          { name: "Mountain View Hotel", rating: "⭐⭐⭐⭐", price: "$120/night" },
-          { name: "Roha Hotel", rating: "⭐⭐⭐", price: "$80/night" }
-        ]
-      },
-      simien: {
-        title: "Simien Mountains National Park",
-        price: 449,
-        description: "Dramatic escarpments, valleys, and unique wildlife like the Gelada baboon and Ethiopian wolf make this Africa's best trekking destination.",
-        location: "Simien Mountains National Park, Amhara",
-        duration: "5 Days / 4 Nights",
-        highlights: [
-          "Guided mountain trekking",
-          "Wildlife spotting opportunities",
-          "Camping under the stars",
-          "Local guide and porters included"
-        ],
-        hotels: [
-          { name: "Simien Lodge", rating: "⭐⭐⭐⭐⭐", price: "$200/night" },
-          { name: "Debark Hotel", rating: "⭐⭐⭐", price: "$90/night" },
-          { name: "Mountain Campsite", rating: "⭐⭐⭐", price: "$50/night" }
-        ]
-      },
-      danakil: {
-        title: "Danakil Depression",
-        price: 599,
-        description: "One of the hottest, lowest, and most geologically active places on Earth, featuring salt flats, sulfur springs, and volcanoes.",
-        location: "Danakil Depression, Afar Region",
-        duration: "4 Days / 3 Nights",
-        highlights: [
-          "Visit Erta Ale volcano",
-          "Salt mining experience",
-          "Dallol hydrothermal field",
-          "4WD vehicle included"
-        ],
-        hotels: [
-          { name: "Afar Lodge", rating: "⭐⭐⭐⭐", price: "$160/night" },
-          { name: "Desert Camp", rating: "⭐⭐⭐", price: "$100/night" },
-          { name: "Basic Camping", rating: "⭐⭐", price: "$60/night" }
-        ]
-      },
-      harar: {
-        title: "Historic Fortified City of Harar",
-        price: 349,
-        description: "Known as the fourth holy city of Islam, Harar has 82 mosques, over 100 shrines, and unique cultural heritage.",
-        location: "Harari Region",
-        duration: "2 Days / 1 Night",
-        highlights: [
-          "Visit the old walled city",
-          "Hyena feeding experience",
-          "Traditional Harari houses",
-          "Cultural museum visit"
-        ],
-        hotels: [
-          { name: "Wonderland Hotel", rating: "⭐⭐⭐⭐", price: "$120/night" },
-          { name: "Heritage Plaza", rating: "⭐⭐⭐", price: "$90/night" },
-          { name: "City View Hotel", rating: "⭐⭐⭐", price: "$70/night" }
-        ]
-      },
-      omo: {
-        title: "Omo Valley Cultural Heritage",
-        price: 399,
-        description: "Diverse indigenous communities with unique customs, languages, and artistic expressions live in the Omo Valley.",
-        location: "Omo Valley, Southern Nations",
-        duration: "4 Days / 3 Nights",
-        highlights: [
-          "Visit multiple tribal communities",
-          "Traditional ceremonies",
-          "Local handicraft workshops",
-          "Cultural expert guide"
-        ],
-        hotels: [
-          { name: "Omo Valley Lodge", rating: "⭐⭐⭐⭐", price: "$140/night" },
-          { name: "Turmi Lodge", rating: "⭐⭐⭐", price: "$100/night" },
-          { name: "Community Guesthouse", rating: "⭐⭐", price: "$70/night" }
-        ]
-      },
-      bluenile: {
-        title: "Blue Nile Falls (Tis Abay)",
-        price: 249,
-        description: "Known as 'Tis Abay' or 'smoking water,' these 45-meter waterfalls are most spectacular during the rainy season.",
-        location: "Amhara Region",
-        duration: "1 Day",
-        highlights: [
-          "View the magnificent waterfalls",
-          "Nature walk around the area",
-          "Photography opportunities",
-          "Local guide included"
-        ],
-        hotels: [
-          { name: "Blue Nile Resort", rating: "⭐⭐⭐⭐", price: "$110/night" },
-          { name: "Tis Abay Hotel", rating: "⭐⭐⭐", price: "$80/night" },
-          { name: "Bahir Dar Hotel", rating: "⭐⭐⭐⭐", price: "$100/night" }
-        ]
-      },
-      aksum: {
-        title: "Aksum Archaeological Site",
-        price: 329,
-        description: "The ancient capital of the Kingdom of Aksum features monumental granite obelisks and royal tombs.",
-        location: "Tigray Region",
-        duration: "2 Days / 1 Night",
-        highlights: [
-          "Visit the obelisks and stelae",
-          "Archaeological museum tour",
-          "Queen of Sheba's palace",
-          "Professional guide included"
-        ],
-        hotels: [
-          { name: "Yeha Hotel", rating: "⭐⭐⭐⭐", price: "$130/night" },
-          { name: "Aksum Hotel", rating: "⭐⭐⭐", price: "$90/night" },
-          { name: "Consolar International", rating: "⭐⭐⭐⭐", price: "$110/night" }
-        ]
-      },
-      bale: {
-        title: "Bale Mountains National Park",
-        price: 479,
-        description: "A biodiversity hotspot with Afroalpine habitats, home to the endangered Ethiopian wolf and over 270 bird species.",
-        location: "Oromia Region",
-        duration: "4 Days / 3 Nights",
-        highlights: [
-          "Wildlife watching",
-          "Mountain trekking",
-          "Bird watching opportunities",
-          "Expert naturalist guide"
-        ],
-        hotels: [
-          { name: "Bale Mountain Lodge", rating: "⭐⭐⭐⭐⭐", price: "$220/night" },
-          { name: "Goba Wabe Shebelle", rating: "⭐⭐⭐", price: "$100/night" },
-          { name: "Dinsho Lodge", rating: "⭐⭐⭐", price: "$80/night" }
-        ]
-      },
-      lake: {
-        title: "Lake Tana Monasteries",
-        price: 279,
-        description: "Ethiopia's largest lake, dotted with island monasteries that house priceless manuscripts and religious art.",
-        location: "Amhara Region",
-        duration: "2 Days / 1 Night",
-        highlights: [
-          "Boat trip to the monasteries",
-          "View ancient religious artifacts",
-          "Bird watching on the lake",
-          "Professional guide included"
-        ],
-        hotels: [
-          { name: "Kuriftu Resort", rating: "⭐⭐⭐⭐⭐", price: "$180/night" },
-          { name: "Jacaranda Hotel", rating: "⭐⭐⭐⭐", price: "$120/night" },
-          { name: "Ghion Hotel", rating: "⭐⭐⭐", price: "$90/night" }
-        ]
-      },
-      konso: {
-        title: "Konso Cultural Landscape",
-        price: 299,
-        description: "Stone-walled terraces cultivated for over 400 years, a UNESCO site showcasing sustainable farming.",
-        location: "Southern Nations",
-        duration: "2 Days / 1 Night",
-        highlights: [
-          "Visit traditional Konso villages",
-          "See the ancient terracing systems",
-          "Cultural museum visit",
-          "Local guide included"
-        ],
-        hotels: [
-          { name: "Konso Lodge", rating: "⭐⭐⭐⭐", price: "$130/night" },
-          { name: "Kanta Lodge", rating: "⭐⭐⭐", price: "$90/night" },
-          { name: "Konso Cultural Hotel", rating: "⭐⭐⭐", price: "$70/night" }
-        ]
-      },
-      gheralta: {
-        title: "Gheralta Rock Churches",
-        price: 379,
-        description: "Cliffside churches from the 13th century, accessible by steep climbs and home to ancient artifacts.",
-        location: "Tigray Region",
-        duration: "3 Days / 2 Nights",
-        highlights: [
-          "Visit multiple rock churches",
-          "Spectacular mountain views",
-          "Ancient religious art",
-          "Expert local guide"
-        ],
-        hotels: [
-          { name: "Gheralta Lodge", rating: "⭐⭐⭐⭐⭐", price: "$190/night" },
-          { name: "Korkor Lodge", rating: "⭐⭐⭐⭐", price: "$140/night" },
-          { name: "Hawzien Hotel", rating: "⭐⭐⭐", price: "$80/night" }
-        ]
-      },
-      coffee: {
-        title: "Ethiopian Coffee Culture",
-        price: 199,
-        description: "Traditional coffee ceremonies involve roasting, grinding, and brewing coffee—central to Ethiopian hospitality.",
-        location: "Nationwide Experience",
-        duration: "1 Day",
-        highlights: [
-          "Participate in coffee ceremony",
-          "Learn about coffee production",
-          "Taste different coffee varieties",
-          "Cultural immersion experience"
-        ],
-        hotels: [
-          { name: "Sheraton Addis", rating: "⭐⭐⭐⭐⭐", price: "$250/night" },
-          { name: "Hilton Addis", rating: "⭐⭐⭐⭐⭐", price: "$220/night" },
-          { name: "Radisson Blu", rating: "⭐⭐⭐⭐", price: "$180/night" }
-        ]
-      }
-    };
+   // Destination data
+const destinations = {
+  lalibela: {
+    title: "Rock-hewn Churches of Lalibela",
+    price: 299,
+    description: "Carved directly into volcanic rock in the 12th century, these churches represent one of the world's greatest architectural achievements.",
+    location: "Lalibela, Amhara Region",
+    duration: "3 Days / 2 Nights",
+    highlights: [
+      "Visit all 11 rock-hewn churches",
+      "Traditional Ethiopian coffee ceremony",
+      "Local cultural performances",
+      "Professional guide included"
+    ],
+    hotels: [
+      { name: "Lalibela Lodge", rating: "⭐⭐⭐⭐⭐", price: "$180/night | ETB 23,400" },
+      { name: "Mountain View Hotel", rating: "⭐⭐⭐⭐", price: "$120/night | ETB 15,600" },
+      { name: "Roha Hotel", rating: "⭐⭐⭐", price: "$80/night | ETB 10,400" }
+    ]
+  },
+  simien: {
+    title: "Simien Mountains National Park",
+    price: 449,
+    description: "Dramatic escarpments, valleys, and unique wildlife like the Gelada baboon and Ethiopian wolf make this Africa's best trekking destination.",
+    location: "Simien Mountains National Park, Amhara",
+    duration: "5 Days / 4 Nights",
+    highlights: [
+      "Guided mountain trekking",
+      "Wildlife spotting opportunities",
+      "Camping under the stars",
+      "Local guide and porters included"
+    ],
+    hotels: [
+      { name: "Simien Lodge", rating: "⭐⭐⭐⭐⭐", price: "$200/night | ETB 26,000" },
+      { name: "Debark Hotel", rating: "⭐⭐⭐", price: "$90/night | ETB 11,700" },
+      { name: "Mountain Campsite", rating: "⭐⭐⭐", price: "$50/night | ETB 6,500" }
+    ]
+  },
+  danakil: {
+    title: "Danakil Depression",
+    price: 599,
+    description: "One of the hottest, lowest, and most geologically active places on Earth, featuring salt flats, sulfur springs, and volcanoes.",
+    location: "Danakil Depression, Afar Region",
+    duration: "4 Days / 3 Nights",
+    highlights: [
+      "Visit Erta Ale volcano",
+      "Salt mining experience",
+      "Dallol hydrothermal field",
+      "4WD vehicle included"
+    ],
+    hotels: [
+      { name: "Afar Lodge", rating: "⭐⭐⭐⭐", price: "$160/night | ETB 20,800" },
+      { name: "Desert Camp", rating: "⭐⭐⭐", price: "$100/night | ETB 13,000" },
+      { name: "Basic Camping", rating: "⭐⭐", price: "$60/night | ETB 7,800" }
+    ]
+  },
+  harar: {
+    title: "Historic Fortified City of Harar",
+    price: 349,
+    description: "Known as the fourth holy city of Islam, Harar has 82 mosques, over 100 shrines, and unique cultural heritage.",
+    location: "Harari Region",
+    duration: "2 Days / 1 Night",
+    highlights: [
+      "Visit the old walled city",
+      "Hyena feeding experience",
+      "Traditional Harari houses",
+      "Cultural museum visit"
+    ],
+    hotels: [
+      { name: "Wonderland Hotel", rating: "⭐⭐⭐⭐", price: "$120/night | ETB 15,600" },
+      { name: "Heritage Plaza", rating: "⭐⭐⭐", price: "$90/night | ETB 11,700" },
+      { name: "City View Hotel", rating: "⭐⭐⭐", price: "$70/night | ETB 9,100" }
+    ]
+  },
+  omo: {
+    title: "Omo Valley Cultural Heritage",
+    price: 399,
+    description: "Diverse indigenous communities with unique customs, languages, and artistic expressions live in the Omo Valley.",
+    location: "Omo Valley, Southern Nations",
+    duration: "4 Days / 3 Nights",
+    highlights: [
+      "Visit multiple tribal communities",
+      "Traditional ceremonies",
+      "Local handicraft workshops",
+      "Cultural expert guide"
+    ],
+    hotels: [
+      { name: "Omo Valley Lodge", rating: "⭐⭐⭐⭐", price: "$140/night | ETB 18,200" },
+      { name: "Turmi Lodge", rating: "⭐⭐⭐", price: "$100/night | ETB 13,000" },
+      { name: "Community Guesthouse", rating: "⭐⭐", price: "$70/night | ETB 9,100" }
+    ]
+  },
+  bluenile: {
+    title: "Blue Nile Falls (Tis Abay)",
+    price: 249,
+    description: "Known as 'Tis Abay' or 'smoking water,' these 45-meter waterfalls are most spectacular during the rainy season.",
+    location: "Amhara Region",
+    duration: "1 Day",
+    highlights: [
+      "View the magnificent waterfalls",
+      "Nature walk around the area",
+      "Photography opportunities",
+      "Local guide included"
+    ],
+    hotels: [
+      { name: "Blue Nile Resort", rating: "⭐⭐⭐⭐", price: "$110/night | ETB 14,300" },
+      { name: "Tis Abay Hotel", rating: "⭐⭐⭐", price: "$80/night | ETB 10,400" },
+      { name: "Bahir Dar Hotel", rating: "⭐⭐⭐⭐", price: "$100/night | ETB 13,000" }
+    ]
+  },
+  aksum: {
+    title: "Aksum Archaeological Site",
+    price: 329,
+    description: "The ancient capital of the Kingdom of Aksum features monumental granite obelisks and royal tombs.",
+    location: "Tigray Region",
+    duration: "2 Days / 1 Night",
+    highlights: [
+      "Visit the obelisks and stelae",
+      "Archaeological museum tour",
+      "Queen of Sheba's palace",
+      "Professional guide included"
+    ],
+    hotels: [
+      { name: "Yeha Hotel", rating: "⭐⭐⭐⭐", price: "$130/night | ETB 16,900" },
+      { name: "Aksum Hotel", rating: "⭐⭐⭐", price: "$90/night | ETB 11,700" },
+      { name: "Consolar International", rating: "⭐⭐⭐⭐", price: "$110/night | ETB 14,300" }
+    ]
+  },
+  bale: {
+    title: "Bale Mountains National Park",
+    price: 479,
+    description: "A biodiversity hotspot with Afroalpine habitats, home to the endangered Ethiopian wolf and over 270 bird species.",
+    location: "Oromia Region",
+    duration: "4 Days / 3 Nights",
+    highlights: [
+      "Wildlife watching",
+      "Mountain trekking",
+      "Bird watching opportunities",
+      "Expert naturalist guide"
+    ],
+    hotels: [
+      { name: "Bale Mountain Lodge", rating: "⭐⭐⭐⭐⭐", price: "$220/night | ETB 28,600" },
+      { name: "Goba Wabe Shebelle", rating: "⭐⭐⭐", price: "$100/night | ETB 13,000" },
+      { name: "Dinsho Lodge", rating: "⭐⭐⭐", price: "$80/night | ETB 10,400" }
+    ]
+  },
+  lake: {
+    title: "Lake Tana Monasteries",
+    price: 279,
+    description: "Ethiopia's largest lake, dotted with island monasteries that house priceless manuscripts and religious art.",
+    location: "Amhara Region",
+    duration: "2 Days / 1 Night",
+    highlights: [
+      "Boat trip to the monasteries",
+      "View ancient religious artifacts",
+      "Bird watching on the lake",
+      "Professional guide included"
+    ],
+    hotels: [
+      { name: "Kuriftu Resort", rating: "⭐⭐⭐⭐⭐", price: "$180/night | ETB 23,400" },
+      { name: "Jacaranda Hotel", rating: "⭐⭐⭐⭐", price: "$120/night | ETB 15,600" },
+      { name: "Ghion Hotel", rating: "⭐⭐⭐", price: "$90/night | ETB 11,700" }
+    ]
+  },
+  konso: {
+    title: "Konso Cultural Landscape",
+    price: 299,
+    description: "Stone-walled terraces cultivated for over 400 years, a UNESCO site showcasing sustainable farming.",
+    location: "Southern Nations",
+    duration: "2 Days / 1 Night",
+    highlights: [
+      "Visit traditional Konso villages",
+      "See the ancient terracing systems",
+      "Cultural museum visit",
+      "Local guide included"
+    ],
+    hotels: [
+      { name: "Konso Lodge", rating: "⭐⭐⭐⭐", price: "$130/night | ETB 16,900" },
+      { name: "Kanta Lodge", rating: "⭐⭐⭐", price: "$90/night | ETB 11,700" },
+      { name: "Konso Cultural Hotel", rating: "⭐⭐⭐", price: "$70/night | ETB 9,100" }
+    ]
+  },
+  gheralta: {
+    title: "Gheralta Rock Churches",
+    price: 379,
+    description: "Cliffside churches from the 13th century, accessible by steep climbs and home to ancient artifacts.",
+    location: "Tigray Region",
+    duration: "3 Days / 2 Nights",
+    highlights: [
+      "Visit multiple rock churches",
+      "Spectacular mountain views",
+      "Ancient religious art",
+      "Expert local guide"
+    ],
+    hotels: [
+      { name: "Gheralta Lodge", rating: "⭐⭐⭐⭐⭐", price: "$190/night | ETB 24,700" },
+      { name: "Korkor Lodge", rating: "⭐⭐⭐⭐", price: "$140/night | ETB 18,200" },
+      { name: "Hawzien Hotel", rating: "⭐⭐⭐", price: "$80/night | ETB 10,400" }
+    ]
+  },
+  coffee: {
+    title: "Ethiopian Coffee Culture",
+    price: 199,
+    description: "Traditional coffee ceremonies involve roasting, grinding, and brewing coffee—central to Ethiopian hospitality.",
+    location: "Nationwide Experience",
+    duration: "1 Day",
+    highlights: [
+      "Participate in coffee ceremony",
+      "Learn about coffee production",
+      "Taste different coffee varieties",
+      "Cultural immersion experience"
+    ],
+    hotels: [
+      { name: "Sheraton Addis", rating: "⭐⭐⭐⭐⭐", price: "$250/night | ETB 32,500" },
+      { name: "Hilton Addis", rating: "⭐⭐⭐⭐⭐", price: "$220/night | ETB 28,600" },
+      { name: "Radisson Blu", rating: "⭐⭐⭐⭐", price: "$180/night | ETB 23,400" }
+    ]
+  }
+};
 
     // Modal functionality
     const modal = document.getElementById("bookingModal");
